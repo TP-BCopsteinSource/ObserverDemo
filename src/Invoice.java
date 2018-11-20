@@ -26,11 +26,7 @@ public class Invoice{
       items.add(item); 
       // notify all observers of the change to the invoice
       ChangeEvent event = new ChangeEvent(this);
-      for (int i = 0; i < listeners.size(); i++)
-      {
-         ChangeListener listener = listeners.get(i);
-         listener.stateChanged(event);
-      }
+      listeners.forEach(l->l.stateChanged(event));
    }
 
    /**
@@ -42,41 +38,10 @@ public class Invoice{
       listeners.add(listener); 
    }
 
-   /**
-      Gets an iterator that iterates through the items.
-      @return an iterator for the items
-   */
-   public Iterator<LineItem> getItems()
-   {
-      return new
-         Iterator<LineItem>()
-         {
-            public boolean hasNext() 
-            { 
-               return current < items.size(); 
-            }
-            public LineItem next() 
-            { 
-               LineItem r = items.get(current);
-               current++; 
-               return r;
-            }
-            public void remove()
-            {
-               throw new UnsupportedOperationException();
-            }
-            private int current = 0;
-         };
-   }
-
-   public String format(InvoiceFormatter formatter)
-   {
+   public String format(InvoiceFormatter formatter){
       String r = formatter.formatHeader();
-      Iterator<LineItem> iter = getItems(); 
-      while (iter.hasNext())
-      {
-         LineItem item = iter.next();
-         r += formatter.formatLineItem(item);
+      for(LineItem item:items) {
+          r += formatter.formatLineItem(item);    	  
       }
       return r + formatter.formatFooter();
    }

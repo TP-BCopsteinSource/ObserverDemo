@@ -21,8 +21,7 @@ public class DiscountedItem implements LineItem
 
    public String toString()
    {
-      return item.toString() + " (Desconto " + discount
-         + "%)";
+      return item.toString() + " (Desconto " + discount + "%)";
    } 
 
    private LineItem item;

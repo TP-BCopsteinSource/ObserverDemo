@@ -54,12 +54,14 @@ public class InvoiceTest
       contentPane.add(panel, BorderLayout.SOUTH);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.pack();
+      frame.setLocation(400,50);
       frame.setVisible(true);
       
       JFrame frameView1 = new JFrame();
       frameView1.getContentPane().add(new JScrollPane(vtn),BorderLayout.CENTER);
       //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frameView1.pack();
+      frameView1.setLocation(200, 200);
       frameView1.setVisible(true);        
 
       JFrame frameView2 = new JFrame();
@@ -68,6 +70,7 @@ public class InvoiceTest
       frameView2.getContentPane().add(jp,BorderLayout.CENTER);
       //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frameView2.pack();
+      frameView2.setLocation(1000, 200);
       frameView2.setVisible(true);          
    }
 }
