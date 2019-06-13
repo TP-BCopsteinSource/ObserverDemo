@@ -1,6 +1,7 @@
 import java.util.*;
 
 /**
+   Composite Pattern
    A bundle of items that is again an item.
 */
 public class Bundle implements LineItem
